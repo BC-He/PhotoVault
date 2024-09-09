@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HawkView API</title>
+</head>
+<body>
+    <h1>HawkView Monitoring System Image Gallery</h1>
+    <p>There are {{ photo_count }} photos in the database.</p>
+    <h2>API Endpoints:</h2>
+    <ul>
+        <li>Upload a photo: <code>/photo</code> (POST)</li>
+        <li>List all photos: <code>/photo</code> (GET)</li>
+        <li>Retrieve a specific photo: <code>/photo/&lt;filename&gt;</code> (GET)</li>
+    </ul>
+    <form action="/photo" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <button type="submit">Upload Photo</button>
+    </form>
+    <h2>Gallery</h2>
+    <ul>
+        {% for photo in photos %}
+        <li>
+            <a href="/photo/{{ photo }}" download>{{ photo }}</a>
+            <!-- Alternatively, you can use the following to display images directly -->
+            <!-- <img src="/photo/{{ photo }}" alt="{{ photo }}" style="width:100px;"> -->
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
