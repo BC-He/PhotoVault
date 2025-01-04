@@ -34,17 +34,26 @@ PhotoVault is a lightweight photo library application built with Flask and Waitr
 
    The application will start on http://127.0.0.1:1935.
 
-##Usage
-###Web Interface
+## Usage
+### Web Interface
 Navigate to http://127.0.0.1:1935 in your browser.
 Use the "Upload Photo" form to add new photos.
 View the uploaded photos in the gallery.
 Click on a photo to download it.
 
-##API Endpoints
+## API Endpoints
 ---
 |Method	|Endpoint	        |Description
------------------------------------------
+|-----|--------------------|--------------
 |POST	|/photo	            |Upload a photo
 |GET	|/photo	            |List all uploaded photos
 |GET	|/photo/<filename>	|Retrieve a specific photo
+
+## Contributing
+Contributions are welcome! Here's how you can help:
+
+1. Fork the repository.
+2. Create a new branch (git checkout -b feature/your-feature-name).
+3. Make your changes and commit them (git commit -am 'Add some feature').
+4. Push to the branch (git push origin feature/your-feature-name).
+5. Open a pull request.
