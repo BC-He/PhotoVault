@@ -3,17 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HawkView API</title>
+    <title>PhotoVault</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #3b5c70;
-            --secondary-color: #202224;
-            --background-color: #dbebf5;
-            --text-color: rgb(30, 34, 37)c;
+            --primary-color: #bdd8e9;
+            --secondary-color: #e1e2e2;
+            --background-color: #14191f;
+            --text-color: #b5b7b9;
+            --button-hover-color: #2b3f50;
+            --card-bg-color: #272a2e;
+            --card-border-color: #202224;
+            --shadow-color: rgba(0, 0, 0, 0.1);
         }
         
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Ubuntu', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--background-color);
@@ -22,76 +27,87 @@
         }
         
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background-color: var(--card-bg-color);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px var(--shadow-color);
         }
         
         h1, h2 {
             color: var(--secondary-color);
+            margin-bottom: 15px;
         }
         
         h1 {
-            border-bottom: 2px solid var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
             padding-bottom: 10px;
+            margin-bottom: 20px;
         }
         
         ul {
             padding-left: 20px;
+            margin-bottom: 20px;
         }
         
         code {
-            background-color: #f8f8f8;
-            padding: 2px 4px;
-            border-radius: 4px;
-            font-family: monospace;
+            background-color: #202122;
+            padding: 4px 6px;
+            border-radius: 6px;
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 0.95em;
         }
         
         form {
             margin: 20px 0;
             display: flex;
-            flex-wrap: wrap;
             gap: 10px;
+            flex-wrap: wrap;
         }
         
         input[type="file"] {
             flex-grow: 1;
+            border: 1px solid var(--card-border-color);
+            border-radius: 6px;
+            padding: 8px;
+            font-size: 1em;
         }
         
         button {
+            font-family: 'Ubuntu', sans-serif;
             background-color: var(--primary-color);
-            color: white;
+            color: rgb(51, 53, 54);
             border: none;
-            padding: 10px 15px;
+            padding: 10px 20px;
             cursor: pointer;
-            border-radius: 4px;
+            border-radius: 6px;
+            font-size: 1em;
             transition: background-color 0.3s ease;
         }
         
         button:hover {
-            background-color: #212a30;
+            background-color: var(--button-hover-color);
         }
         
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 15px;
             margin-top: 20px;
         }
         
         .gallery-item {
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            background-color: var(--card-bg-color);
+            border: 1px solid var(--card-border-color);
+            border-radius: 8px;
             overflow: hidden;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
         .gallery-item:hover {
             transform: scale(1.05);
+            box-shadow: 0 8px 15px var(--shadow-color);
         }
         
         .gallery-item img {
@@ -104,22 +120,23 @@
             margin: 0;
             padding: 10px;
             text-align: center;
-            font-size: 0.9em;
+            font-size: 0.95em;
+            color: var(--secondary-color);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            color: var(--gallery-text-color); /* Changed text color for gallery items */
         }
         
         .gallery-item a {
-            text-decoration: none; /* Removes underline from links */
-            color: inherit; /* Ensures the link color is inherited from the parent */
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>HawkView Monitoring System Image Gallery</h1>
+        <h1>PhotoVault Gallery</h1>
         <p>There are <strong>{{ photo_count }}</strong> photos in the database.</p>
         
         <h2>API Endpoints</h2>
